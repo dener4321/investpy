@@ -14,6 +14,7 @@ from unidecode import unidecode
 from .utils import constant as cst
 from .utils.extra import random_user_agent
 
+import cfscraper
 
 def economic_calendar(
     time_zone=None,
@@ -245,8 +246,10 @@ def economic_calendar(
     id_, last_id = 0, 0
     results = list()
 
+    scraper = cfscrape.create_scraper()
+    
     while True:
-        req = requests.post(url, headers=headers, data=data)
+        req = scraper.post(url, headers=headers, data=data)
 
         root = fromstring(req.json()["data"])
         table = root.xpath(".//tr")
