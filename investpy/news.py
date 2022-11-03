@@ -14,7 +14,7 @@ from unidecode import unidecode
 from .utils import constant as cst
 from .utils.extra import random_user_agent
 
-import cfscraper
+import cfscrape
 
 def economic_calendar(
     time_zone=None,
